@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-bengali: 'Noto Sans Bengali', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0e0818;
+    color: #faf5ff;
+    overflow-x: hidden;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-bengali {
+  font-family: var(--font-bengali);
+}
+
+/* Aurora & Dreamy Keyframes (Compositor-Only) */
+@keyframes auroraDrift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.65;
+  }
+  33% {
+    transform: translate3d(4%, -3%, 0) scale(1.08);
+    opacity: 0.85;
+  }
+  66% {
+    transform: translate3d(-4%, 3%, 0) scale(0.96);
+    opacity: 0.7;
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+@keyframes floatHeartUp {
+  0% {
+    transform: translate3d(0, 20px, 0) scale(0.7) rotate(-8deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  85% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate3d(0, -110vh, 0) scale(1.1) rotate(12deg);
+    opacity: 0;
+  }
+}
+
+@keyframes twinkleStar {
+  0%, 100% {
+    transform: scale(0.75);
+    opacity: 0.25;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.95;
+  }
+}
+
+@keyframes butterflyFlight {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(-6deg);
+  }
+  25% {
+    transform: translate3d(28px, -22px, 0) rotate(6deg);
+  }
+  50% {
+    transform: translate3d(52px, 4px, 0) rotate(-4deg);
+  }
+  75% {
+    transform: translate3d(20px, 18px, 0) rotate(8deg);
+  }
+}
+
+@keyframes wingFlap {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.38);
+  }
+}
+
+@keyframes petalSway {
+  0%, 100% {
+    transform: rotate(-4deg) scale(1);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.04);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-aurora {
+  animation: auroraDrift 16s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkleStar 3.6s ease-in-out infinite;
+}
+
+.animate-butterfly {
+  animation: butterflyFlight 12s ease-in-out infinite;
+}
+
+.animate-wing {
+  transform-origin: center;
+  animation: wingFlap 0.38s ease-in-out infinite;
+}
+
+.animate-petal-sway {
+  transform-origin: bottom center;
+  animation: petalSway 5s ease-in-out infinite;
+}
+
+/* 3D Perspective utilities for Door & Envelope */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 9, 26, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(192, 132, 252, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 114, 182, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-aurora,
+  .animate-float-gentle,
+  .animate-twinkle,
+  .animate-butterfly,
+  .animate-wing,
+  .animate-petal-sway {
+    animation: none !important;
+  }
+}
